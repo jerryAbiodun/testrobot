@@ -1,6 +1,12 @@
-const { runRobot, randomRobot, routeRobot } = require("./runRobotFunctions");
-const  VillageState  = require("./villageState");
-
+const { mailRoute } = require("./mailRoute");
+const {
+  runRobot,
+  randomRobot,
+  routeRobot,
+  goalOrientedRobot,
+  compareRobots,
+} = require("./runRobotFunctions");
+const VillageState = require("./villageState");
 
 // let first = new VillageState(
 //     "Post Office",
@@ -14,7 +20,13 @@ const  VillageState  = require("./villageState");
 //     console.log(first.place);
 //     // → Post Office
 
-
 // runRobot(VillageState.random(), randomRobot);
+let initialVIllageState = VillageState.random(100);
+let robots = [
+  { name: " randomRobot", robot: randomRobot },
+  { name: " goalOrientedRobot", robot: goalOrientedRobot },
+  { name: " routeRobot", robot: routeRobot },
+];
 
-runRobot(VillageState.random(), routeRobot,mailRoute);
+// runRobot(VillageState.random(), goalOrientedRobot,mailRoute);
+compareRobots(initialVIllageState, robots, mailRoute);

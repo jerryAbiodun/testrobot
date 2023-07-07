@@ -18,7 +18,7 @@ class VillageState {
           return { place: destination, address: p.address };
         })
         .filter((p) => p.place != p.address);
-        console.log("remaining parcels",parcels.length)
+        // console.log("remaining parcels",parcels.length)
       return new VillageState(destination, parcels);
     }
   }
